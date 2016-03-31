@@ -41,6 +41,16 @@ h1{
 	margin: 1px 3px;
 }
 
+.input-field-home{
+/* Input Background: */
+background: rgba(63,64,113,0.95);
+/* Sketch doesnt export gradient borders at this point */
+border-radius: 10px;
+padding: 5px;
+color: #FFFFFF;
+
+}
+
 #details{
 	text-align: center;
 }
