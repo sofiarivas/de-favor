@@ -88,5 +88,5 @@ ENV/
 .spyderproject
 
 # osfiles
-.DS_STORE
+.DS_Store
 
