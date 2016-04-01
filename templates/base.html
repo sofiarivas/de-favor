@@ -7,13 +7,81 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width">
 
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+	<!-- Compiled and minified CSS -->
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+
+      <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'estilos.css' %}">
+	
 </head>
 <body>
+<!-- nav bar -->
 
-{% block content %}
+<nav class="deep-purple darken-4">
+    <div class="nav-wrapper">
+	  <a href="#!" class="brand-logo"><img src="{% static 'logo.png' %}" id="logo-home"></a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Registro</a></li>
+        <li><a id="callto-home">Gana dinero pon en renta tus juegos </a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="#">Sass</a></li>
+        <li><a href="#">Components</a></li>
+        <li><a href="#">Javascript</a></li>
+        <li><a href="#">Mobile</a></li>
+      </ul>
+    </div>
+  </nav>
 
-{% endblock content %}
-	
+
+
+
+	{% block content %}
+
+	{% endblock content %}
+
+
+  <footer>
+    <div class="row footer">
+
+      <div class="col s12 l4"><a href="#!" class="brand-logo"><img src="{% static 'logo.png' %}" id="logo-home"></a></div>
+      <div class="col s12 m6 l4">
+        <ul>
+          <li class="title-footer">Conócenos</li>
+          <li class="items-footer">¿Qué es DeFavor.com?</li>
+          <li class="items-footer">¿Cómo hacer dinero de tus juegos?</li>
+          <li class="items-footer">Tips para incrementar tus rentas</li>
+        </ul>
+      </div>
+      <div class="col s12 m6 l4">
+        <ul>
+          <li class="title-footer">Preguntas Frecuentes</li>
+          <li class="items-footer">Publica un juego en renta</li>
+          <li class="items-footer">Reporte de pérdida de juego</li>
+          <li class="items-footer">Ayuda</li>
+        </ul>
+      </div>
+      <p class="legal">© 2016, DeFavor.com, Inc. o afiliados. Todos los derechos reservados  |  Condiciones de uso  |  Aviso de privacidad </p>
+    </div>
+  </footer>
+
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+  	$(".button-collapse").sideNav();
+  });
+  </script>
+
 </body>
 </html>
