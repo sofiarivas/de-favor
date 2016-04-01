@@ -16,7 +16,7 @@ class Categoria(models.Model):
 
 
 class Juego(models.Model):
-    PLATFORM_CHOICES = {
+    PLATFORM_CHOICES = sorted({
         ('xbox', 'Xbox'),
         ('xbox360', 'Xbox 360'),
         ('xboxone', 'Xbox One'),
@@ -24,8 +24,8 @@ class Juego(models.Model):
         ('ps3', 'Playstation 3'),
         ('ps4', 'Playstation 4'),
         ('wii', 'Nintendo Wii')
-    }
-    STATE_CHOICES = {
+    })
+    STATE_CHOICES = sorted({
         ('AGU', 'Aguascalientes'), ('BCN', 'Baja California'),
         ('BCS', 'Baja California Sur'),
         ('CAM', 'Campeche'), ('CHH', 'Chihuahua'),
@@ -43,7 +43,7 @@ class Juego(models.Model):
         ('SON', 'Sonora'), ('TAB', 'Tabasco'),
         ('TAM', 'Tamaulipas'), ('TLA', 'Tlaxcala'),
         ('VER', 'Veracruz'), ('YUC', 'Yucatán'),
-        ('ZAC', 'Zacatecas')}
+        ('ZAC', 'Zacatecas')})
 
     usuario = models.ForeignKey(User, related_name='propietario',
                                 blank=True, null=True)
@@ -56,7 +56,7 @@ class Juego(models.Model):
     precio_renta = models.FloatField(blank=True, null=True)
     deposito = models.FloatField(blank=True, null=True)
     descripcion = models.TextField(blank=True, null=True)
-    ubicacion = models.CharField(choices=STATE_CHOICES)
+    ubicacion = models.CharField(max_length=100, choices=STATE_CHOICES)
     imagen = models.ImageField(upload_to='media')
     prefijo = models.CharField(max_length=3)
     telefono = models.CharField(max_length=10)
