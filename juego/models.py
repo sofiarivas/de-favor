@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.utils import timezone
 
 
 class Categoria(models.Model):
@@ -26,6 +25,26 @@ class Juego(models.Model):
         ('ps4', 'Playstation 4'),
         ('wii', 'Nintendo Wii')
     }
+    STATE_CHOICES = {
+        ('AGU', 'Aguascalientes'), ('BCN', 'Baja California'),
+        ('BCS', 'Baja California Sur'),
+        ('CAM', 'Campeche'), ('CHH', 'Chihuahua'),
+        ('CHP', 'Chiapas'), ('COA', 'Coahuila'),
+        ('COL', 'Colima'),
+        ('CDMX', 'Ciudad de Mexico'),
+        ('DUR', 'Durango'), ('GRO', 'Guerrero'),
+        ('GUA', 'Guanajuato'), ('HID', 'Hidalgo'),
+        ('JAL', 'Jalisco'), ('MEX', 'Estado de México'),
+        ('MIC', 'Michoacán'), ('MOR', 'Morelos'),
+        ('NAY', 'Nayarit'), ('NLE', 'Nuevo León'),
+        ('OAX', 'Oaxaca'), ('PUE', 'Puebla'),
+        ('QUE', 'Querétaro'), ('ROO', 'Quintana Roo'),
+        ('SIN', 'Sinaloa'), ('SLP', 'San Luis Potosí'),
+        ('SON', 'Sonora'), ('TAB', 'Tabasco'),
+        ('TAM', 'Tamaulipas'), ('TLA', 'Tlaxcala'),
+        ('VER', 'Veracruz'), ('YUC', 'Yucatán'),
+        ('ZAC', 'Zacatecas')}
+
     usuario = models.ForeignKey(User, related_name='propietario',
                                 blank=True, null=True)
     titulo = models.CharField(max_length=50, db_index=True)
@@ -33,11 +52,11 @@ class Juego(models.Model):
     plataforma = models.CharField(max_length=50, db_index=True,
                                   choices=PLATFORM_CHOICES)
     categoria = models.ForeignKey(Categoria, related_name='juegos')
-    fecharenta = models.DateTimeField(auto_now=True)
-    preciorenta = models.FloatField(blank=True, null=True)
+    fecha_alta = models.DateTimeField(auto_now=True)
+    precio_renta = models.FloatField(blank=True, null=True)
     deposito = models.FloatField(blank=True, null=True)
     descripcion = models.TextField(blank=True, null=True)
-    ubicacion = models.ForeignKey(User, related_name='ubicacion')
+    ubicacion = models.CharField(choices=STATE_CHOICES)
     imagen = models.ImageField(upload_to='media')
     prefijo = models.CharField(max_length=3)
     telefono = models.CharField(max_length=10)
