@@ -86,3 +86,7 @@ ENV/
 
 # Spyder project settings
 .spyderproject
+
+# osfiles
+.DS_STORE
+
