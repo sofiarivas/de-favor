@@ -7,4 +7,9 @@ urlpatterns=[
 			views.HomeView.as_view(),
 			name='home'
 			),
+
+	url(r'^detalle/$', 
+			views.DetalleView.as_view(),
+			name='detalle'
+			),
 ]

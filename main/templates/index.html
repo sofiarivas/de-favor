@@ -2,7 +2,7 @@
 {% load static%}
 
 {%block nav%}
-<nav class="transparent nav-home">
+<nav class="nav-home">
     <div class="nav-wrapper">
 	  <a href="#!" class="brand-logo"><img src="{% static 'logo.png' %}" id="logo-home"></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -70,6 +70,14 @@
 <div class="container">
 	<div id="juegos-destacados" class="row">
 		<h5>Los Juegos más rentados:</h5>
+		
+		{%for juego in juegos %}
+
+		<p> {{ juego.titulo}}</p>
+		{%endfor%}
+
+
+
 	</div>	
 
 	<div id="details" class="row">

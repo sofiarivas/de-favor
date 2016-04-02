@@ -19,7 +19,23 @@ h1{
 	background-image: url(back-home.jpg);	
 	background-attachment: fixed;	
 }
+/*Estilos de menu default*/
+.nav-wrapper-main{
+box-shadow: none;
+}
 
+
+.login_button{
+color: #252654;
+}
+.register_button{
+	background-color: #252654;
+	border: 2px solid #252654!important
+}
+.register_button:hover{
+border: 2px solid #252654!important;
+}
+/*Estilos de menu home*/
 #home-welcome{
 	background-image: url(back-home.jpg);
 	background-attachment: fixed;	
