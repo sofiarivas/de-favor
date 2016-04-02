@@ -16,7 +16,7 @@
 				<form>
 					<div class="input-field-home offset-l1 l10 ">
 					<input placeholder="Encuentra un juego, renta y descubre una nueva aventura.." id="first_name" type="text" class="validate">
-					
+
 				</form>
 					</div>
 			</div>
@@ -25,11 +25,23 @@
 	</div>
 </div>
 
-
+<!-- seccion de juegos recientes -->
 <div class="container">
 	<div id="juegos-destacados" class="row">
 		<h5>Los Juegos más rentados:</h5>
-	</div>	
+</div>
+{% if jgo %}
+
+	{% for j in jgo %}
+		<img src="/static/{{j.imagen}}" alt="" />
+	{% endfor %}
+
+{% else %}
+<p>
+	No hay juegos
+</p>
+{% endif %}
+<!-- FIN seccion de juegos recientes -->
 
 	<div id="details" class="row">
 		<h4>Los beneficios de nuestra plataforma:</h4>
