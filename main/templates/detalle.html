@@ -3,26 +3,45 @@
 {%block content %}
 
 <div class="row">
-	<nav class="default_nav">
-		<div class="search_form col s12 l6">
-			<input type="text" placeholder="Busca un juego">
+	<nav class="default_nav transparent">
+		<div class="search_form col s12 l6 ">
+			<form action="">
+			<input type="text"  class="search_on_nav" placeholder="Busca un juego">
+			</form>
 		</div>
 		<div class="col l6">
 			<ul>
 				<li class="item-default-nav">Ver categorías</li>
-				<li class="item-default-nav">¿Cómo funciona De Favor</li>
+				<li class="item-default-nav">¿Cómo funciona De Favor?</li>
 				<li class="item-default-nav">Contacto</li>
 			</ul>
 		</div>
 	</nav>
 </div>
 
-<div class="row">
-	<div class="col s12 l6">
-		
-	</div>	
-	<div class="">
-		<h2>Ya funciona</h2>
+<div class="container">
+	<div class="row">
+		<div class="col s12 m6 l6">
+			<a href="#"><img src="{% static 'game_thumb5.jpg' %}" alt="">  </a>
+		</div>	
+		<div class="col s12 m6 l6">
+			<div class="row">
+				<h4>Titulo de juego {{juego.titulo}}</h4>
+				<p class="dueno_juego"> Por: {{juego.usuario}}</p>
+			</div>
+			<div class="row main_detalle">
+				<span class="texto_renta">Rentalo por:</span>
+				<span> <button class="boton_renta"> $80 </button></span>
+				<span class="texto_deposito">Deposito: <span class="cantidad_deposito">$80{{juego.deposito}}</span> </span>
+			</div>
+			<div class="row">
+				<span class="texto_ubicacion">Ubicación:</span><span class="ubicacion_juego"> Aca esta {{juego.ubicacion}}</span><br>
+				<span class="texto_consola">Consola:</span><span class="plataforma_juego">Xbox{{juego.plataforma}}</span><br>
+				<span class="texto_descripcion">Descripción:</span><span class="descripcion_juego">Plants vs. Zombies: Garden Warfare 2, or PvZ GW2 for short, is a third-person shooter and tower defense video game developed by PopCap Games and published by Electronic Arts. {{juego.descripcion}}</span>
+			</div>
+
+			
+		</div>
 	</div>
 </div>
 {%endblock content%}
