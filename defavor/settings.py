@@ -37,10 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social.apps.django_app.default',
 
     # Aca van nuestras apps creadas
     'main',
     'juego',
+    'cuentas',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -127,3 +129,26 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "static")
+
+
+AUTHENTICATION_BACKENDS = (
+    'social.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+    'social.backends.twitter.TwitterOAuth',
+)
+
+SOCIAL_AUTH_FACEBOOK_KEY = '950462918355741'
+SOCIAL_AUTH_FACEBOOK_SECRET = '609a477b64adcbe970a414f485d0bce2'
+
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+  'locale': 'ru_RU',
+  'fields': 'id, name, email, age_range'
+}
+
+SOCIAL_AUTH_TWITTER_KEY = 'QmGvootZx1O6ZdjxWtsYwIG7o'
+SOCIAL_AUTH_TWITTER_SECRET = 'OiYizpx8WtOBMsRwEBtqEnKGJDc5YK4psz7kFPLOU2ttkcWDCa'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = "/main/home/"
+
+

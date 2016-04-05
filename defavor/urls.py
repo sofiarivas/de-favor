@@ -10,6 +10,8 @@ urlpatterns = [
     url(r'^main/',
         include('main.urls', namespace="main")),
 
+    url('', include('social.apps.django_app.urls', namespace='social')),
+
 ]
 
 if settings.DEBUG:

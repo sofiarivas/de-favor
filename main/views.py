@@ -9,3 +9,8 @@ class HomeView(TemplateView):
 
 		return render(request, template_name)
 
+class LoginView(TemplateView):
+	def get(self,request):
+		template_name="login.html"
+
+		return render(request, template_name)
