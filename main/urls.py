@@ -6,10 +6,8 @@ urlpatterns = [
   url(r'^home/$',
       views.HomeView.as_view(),
       name='home'),
- ]
 
-urlpatterns = [
-  url(r'^home/$',
+  url(r'^recientes/$',
       views.RecientesView.as_view(),
-      name='home'),
+      name='recientes'),
  ]
