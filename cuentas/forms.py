@@ -2,11 +2,6 @@ from django import forms
 from django.contrib.auth.models import User
 
 
-class LoginForm(forms.Form):
-    email = forms.CharField(label='Correo Electronico')
-    password = forms.CharField(widget=forms.PasswordInput)
-
-
 class UserRegistrationForm(forms.ModelForm):
     username = forms.EmailField(label='Correo')
     first_name = forms.CharField(label='Nombre')
@@ -16,7 +11,7 @@ class UserRegistrationForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'email')
+        fields = ('username', 'first_name')
 
     def clean_password2(self):
         cd = self.cleaned_data

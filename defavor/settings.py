@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'main',
     'juego',
     'cuentas',
-    'social.apps.django_app.default',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -124,25 +123,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-from django.core.urlresolvers import reverse_lazy
-
-LOGIN_REDIRECT_URL = reverse_lazy('cuentas:dashboard')
-
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "static")
-
-AUTHENTICATION_BACKENDS = (
-    'social.backends.facebook.FacebookOAuth2',
-    'django.contrib.auth.backends.ModelBackend',
-)
-
-SOCIAL_AUTH_FACEBOOK_KEY = '1241380615890558'
-SOCIAL_AUTH_FACEBOOK_SECRET = '3468017a602ad9cf86ae5677ae55a2f2'
-SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
-SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
-  'locale': 'ru_RU',
-  'fields': 'id, name, email, age_range'
-}

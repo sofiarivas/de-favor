@@ -12,8 +12,6 @@ urlpatterns = [
 
     url(r'^cuentas/',
         include('cuentas.urls', namespace='cuentas')),
-
-    url('', include('social.apps.django_app.urls', namespace='social')),
 ]
 
 if settings.DEBUG:
