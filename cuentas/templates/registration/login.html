@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+   {% block title %}Log-in{% endblock %}
+   {% block content %}
+     <h1>Log-in</h1>
+     {% if form.errors %}
+       <p>
+         Tu contraseña o nombre de usuario son incorrectos,
+         porfavor intentalo de nuevo.
+       </p>
+     {% else %}
+       <p>Inicia Sesion:</p>
+     {% endif %}
+     <div class="login-form">
+    <form action="{% url 'cuentas:login' %}" method="post">
+      {{ form.as_p }}
+      {% csrf_token %}
+      <input type="hidden" name="next" value="{{ next }}" />
+
+        <p><input type="submit" value="Log-in"></p>
+        <a class="btn waves-effect blue" href="{%url 'social:begin' 'facebook'%}">Entra con Facebook</a>
+    </form>
+  </div>
+{% endblock %}
