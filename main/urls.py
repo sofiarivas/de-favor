@@ -14,6 +14,12 @@ url(r'^login/$',
 			views.LoginView.as_view(),
 			name='login'
 			),
+
+url(r'^contacto/$', 
+			views.ContactoView.as_view(),
+			name='contacto'
+			),
+
 #  ]
 
 # urlpatterns = [

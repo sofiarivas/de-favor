@@ -1,0 +1,71 @@
+{%extends "base.html"%}
+{%load static%}
+{%block content%}
+
+<div class="row">
+	<nav class="default_nav transparent">
+		<div class="search_form col s12 l6">
+			<form action="">
+			<input type="text"  class="search_on_nav" placeholder="Busca un juego">
+			</form>
+		</div>
+		<div class="col l6">
+			<ul>
+				<li class="item-default-nav">Ver categorías</li>
+				<li class="item-default-nav">¿Cómo funciona De Favor?</li>
+				<li class="item-default-nav">Contacto</li>
+			</ul>
+		</div>
+	</nav>
+</div>
+
+<div class="container">
+	<div class="row">
+		<!-- <div class="col s12 m6 l6"> -->
+			<a href="#"><img src="{% static 'store_icon.jpg'%}" alt="">  </a>
+		</div>	
+		<div class="col s12 m6 l6">
+			<div class="row">
+				<h4>Contáctanos</h4>
+			</div>
+
+			<div>
+				
+				<p> DATOS DE CONTACTO </p>
+			
+				<li> correo: hola@defavor.com </li>
+				<li> teléfono: 01800 defavor </li>
+			
+			</div>
+			
+			<br>
+
+			<div>
+        		<div>{# <a href="#">Registro</a> #}
+          		  {%if request.user.is_authenticated%}
+            		Hola {{request.user.username}}
+
+            	 <p> O déjanos tu Comentario </p>		
+           
+           		 <textarea> </textarea>
+
+           		 <button> Enviar </button>
+            
+           		 {%else%}
+           		 	<p> O Regístrate para enviarnos tu comentario </p>	
+           			 <a href="{%url 'social:begin' 'facebook'%}" class="btn waves-effect blue">entra con facebook</a>
+
+          			  <a href="{%url 'social:begin' 'twitter'%}" class="btn waves-effect blue">entra con twitter</a>
+
+            	{%endif%}
+			</div>
+
+
+			
+		</div>
+	</div> 
+</div>
+
+
+
+{% endblock content%}
