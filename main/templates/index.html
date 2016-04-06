@@ -4,11 +4,23 @@
 {%block nav%}
 <nav class="nav-home">
     <div class="nav-wrapper">
-	  <a href="#!" class="brand-logo"><img src="{% static 'logo.png' %}" id="logo-home"></a>
+	  <a href="../home!" class="brand-logo"><img src="{% static 'logo.png' %}" id="logo-home"></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#">Iniciar sesión</a></li>
-        <li><a id="callto-home">Pobre loco </a></li>
+		<li>
+			{% if request.user.is_authenticated %}
+			  <li {% if section == "dashboard" %}class="selected"{% endif %}>
+			<a href="{% url "cuentas:dashboard" %}">Mi Cuenta</a></li>
+			{% endif %}
+
+			{% if request.user.is_authenticated %}
+			Hola {{ request.user.username }},
+			<li><a href="{% url "cuentas:logout" %}">Logout</a></li>
+			{% else %}
+			<li><a href="{% url "cuentas:login" %}" class="login_home">Inicia Sesion</a>
+				<li><a href="{% url "cuentas:register" %}" class="register_button">Registro</a></li>
+				<li><a id="callto-home">Gana dinero pon en renta tus juegos </a></li>
+			{% endif %}
       </ul>
       <ul class="side-nav" id="mobile-demo">
         <li><a href="#">Sass</a></li>
@@ -46,20 +58,16 @@
 			
 			<div class="col s12 offset-l1 l10 ">
 				<div class="chip tag-home">
-					Tag
-					<i class="material-icons">close</i>
+					Aventura
 				</div>
 				<div class="chip tag-home">
-					Tag
-					<i class="material-icons">close</i>
+					Acción
 				</div>
 				<div class="chip tag-home">
-					Tag
-					<i class="material-icons">close</i>
+					Terror
 				</div>
 				<div class="chip tag-home">
-					Tag
-					<i class="material-icons">close</i>
+					Carreras
 				</div>
 			</div>
 		</div>
@@ -71,13 +79,14 @@
 <!-- seccion de juegos recientes -->
 <div class="container">
 	<div id="juegos-destacados" class="row">
-		<h5>Los Juegos más rentados:</h5>
-	</div>	
-
+		<h5>Los Juegos más recientes:</h5>
+	
 	{% if jgo %}
-
 		{% for j in jgo %}
-			<img src="/static/{{j.imagen}}" alt="" />
+		<div class="col s12 m4 l4">
+			<span class="juego_reciente"><a href="../detalle/{{j.slug}}"><img src="/static/{{j.imagen}}" class="imagen_juego_module" alt=""/></a>
+			<br><button class="renta_boton" href="../detalle/{{j.slug}}"> Ver juego</button></span><br>		
+		</div>
 		{% endfor %}
 
 	{% else %}
@@ -85,8 +94,8 @@
 		No hay juegos
 	</p>
 	{% endif %}
-
-
+	</div>
+	
 	<div id="details" class="row">
 		<h4>Los beneficios de nuestra plataforma:</h4>
 		<ul>

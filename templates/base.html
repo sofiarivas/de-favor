@@ -1,4 +1,5 @@
 {%load static%}
+{%load staticfiles%}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,11 +27,23 @@
 {%block nav%}
 <nav class="transparent nav-wrapper-main">
     <div class="nav-wrapper-main">
-	  <a href="#!" class="brand-logo"><img src="{% static 'logo_morado.png' %}" id="logo-home"></a>
+	  <a href="../home" class="brand-logo"><img src="{% static 'logo_morado.png' %}" id="logo-home"></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#" class="login_button">Iniciar sesión</a></li>
-        <li><a id="callto-home" class="register_button">Gana dinero pon en renta tus juegos </a></li>
+				<li>
+					{% if request.user.is_authenticated %}
+					  <li {% if section == "dashboard" %}class="selected"{% endif %}>
+		         <a href="{% url "cuentas:dashboard" %}">Mi Cuenta</a></li>
+					{% endif %}
+
+					{% if request.user.is_authenticated %}
+	          Hola {{ request.user.username }},
+	          <li><a href="{% url "cuentas:logout" %}">Logout</a></li>
+	        {% else %}
+	          <li><a href="{% url "cuentas:login" %}" class="login_button">Inicia Sesion</a>
+						<li><a href="{% url "cuentas:register" %}" class="login_button">Registrowww</a></li>
+						<li><a class="register_button">Gana dinero pon en renta tus juegos </a></li>
+	        {% endif %}
       </ul>
       <ul class="side-nav" id="mobile-demo">
         <li><a href="#">Sass</a></li>
@@ -41,8 +54,6 @@
     </div>
   </nav>
 {%endblock nav%}
-
-
 
 	{% block content %}
 

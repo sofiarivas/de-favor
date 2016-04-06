@@ -16,9 +16,9 @@ h1{
 	color: #FFFFFF;
 	margin: auto;
 }
-/*.container{
-	width: 85%!important;
-}*/
+.container{
+	width: 90%!important;
+}
 .nav-home{
 	background-image: url(back-home.jpg);	
 	background-attachment: fixed;	
@@ -77,7 +77,7 @@ box-shadow: none;
 color: #252654;
 }
 .register_button{
-	background-color: #252654;
+	background-color: #252654!important;
 	border: 2px solid #252654!important
 }
 .register_button:hover{
@@ -87,7 +87,7 @@ border: 2px solid #252654!important;
 #home-welcome{
 	background-image: url(back-home.jpg);
 	background-attachment: fixed;	
-	height: 585px;
+	height: 540px;
 	text-align: center;
 	padding-top: 10%;
 }
@@ -180,12 +180,43 @@ border-bottom: 0!important;
 }
 
 #details{
+	margin-bottom: 3em;
 	text-align: center;
+
 }
 #details li{
 	font-size: 16px;
 }
 
+/*Estilos de juegos recientes*/
+.imagen_juego_module{
+	height: 180px;
+	width: auto;
+}
+
+.juego_reciente{
+	margin-top: 0.7em;
+	display: inline-block!important;
+	text-align: center;
+}
+#juegos-destacados{
+	text-align: center;
+	margin-top: 4em;
+	margin-bottom: 3em;
+	border-bottom: 1px solid #D2D2D2;
+	padding-bottom: 3em;
+}
+
+.renta_boton{
+	font-size: 14px;
+	font-weight: lighter;
+	background-color: #6B49AE!important;
+	color: #FFFFFF!important;
+	margin: 0.6em 0.5em!important;
+	border:0;
+	border-bottom: 5px solid #4E2D8E!important;
+	padding: 0.8em 1em!important;
+}
 /* Estilos de template de detalle*/
 
 .dueno_juego{
@@ -203,7 +234,7 @@ border-bottom: 0!important;
 	margin: 0 0.5em!important;
 	border:0;
 	border-bottom: 5px solid #4E2D8E!important;
-	padding: 0.4em 3em!important;
+	padding: 0.4em 2.4em!important;
 }
 
 .boton_renta:hover{
@@ -217,7 +248,7 @@ border-bottom: 0!important;
 	color: #6B49AE;
 }
 .texto_deposito{
-	margin-left: 2em;
+	margin-left: 1.3em;
 	color: #4A4A4A;
 	font-weight: bolder;
 }
