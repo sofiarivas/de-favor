@@ -72,7 +72,19 @@ box-shadow: none;
 	box-shadow: none!important;
 }
 /*Botones*/
+.facebook_login{
+	margin-left: 1em;
+	display: inline-block;
+	background-color: #3B5998!important;
+	border-bottom: 2px solid #233969!important;
+}
 
+.twitter_login{
+	margin-left: 1em;
+	display: inline-block;
+	background-color: #0FC3FF!important;
+	border-bottom: 2px solid #16A1CF!important;
+}
 .login_button{
 color: #252654;
 }

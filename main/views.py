@@ -22,12 +22,11 @@ class DetalleView(TemplateView):
         }
         return render(request, template_name,contexto)
 
-class RecientesView(TemplateView):
-    def get(self, request):
-        template = 'index.html'
-        juegos = Juego.objects.order_by('fecha_alta').reverse()
-        ctx = {'jgo': juegos}
-        return render(request, template, ctx)
+class LoginView(TemplateView):
+	def get(self,request):
+		template_name="login.html"
+
+		return render(request, template_name)
 
 class PreguntasView(TemplateView):
     def get(self, request):
