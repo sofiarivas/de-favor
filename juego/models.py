@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 
 class Categoria(models.Model):
+
     nombre = models.CharField(max_length=100, db_index=True)
     slug = models.SlugField(max_length=100, db_index=True, unique=True)
 
@@ -51,7 +52,7 @@ class Juego(models.Model):
     slug = models.SlugField(max_length=200, db_index=True)
     plataforma = models.CharField(max_length=50, db_index=True,
                                   choices=PLATFORM_CHOICES)
-    categoria = models.ForeignKey(Categoria, related_name='juegos')
+    categoria = models.ForeignKey(Categoria, related_name='categoria')
     fecha_alta = models.DateTimeField(auto_now=True)
     precio_renta = models.FloatField(blank=True, null=True)
     deposito = models.FloatField(blank=True, null=True)
