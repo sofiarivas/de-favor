@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from juego.models import Juego
+from django.core.urlresolvers import reverse
+
 
 
 class HomeView(TemplateView):
@@ -10,8 +12,25 @@ class HomeView(TemplateView):
         ctx = {'jgo': juegos}
         return render(request, template_name, ctx)
 
+class DetalleView(TemplateView):
+    def get(self, request, slug):
+        juego = Juego.objects.get(slug=slug)
+        template_name="detalle.html"
+        contexto = {
+            'juego':juego,
+        }
+        return render(request, template_name,contexto)
+
 
 class LoginView(TemplateView):
+
     def get(self, request):
         template_name = "login.html"
         return render(request, template_name)
+
+
+class PreguntasView(TemplateView):
+    def get(self, request):
+        template = 'faq.html'
+
+        return render(request, template)

@@ -2,19 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class Categoria(models.Model):
-    nombre = models.CharField(max_length=100, db_index=True)
-    slug = models.SlugField(max_length=100, db_index=True, unique=True)
-
-    class Meta:
-        ordering = ('nombre',)
-        verbose_name = 'categoria',
-        verbose_name_plural = 'categorias'
-
-    def __str__(self):
-        return self.nombre
-
-
 class Juego(models.Model):
     PLATFORM_CHOICES = sorted({
         ('xbox', 'Xbox'),
@@ -45,13 +32,20 @@ class Juego(models.Model):
         ('VER', 'Veracruz'), ('YUC', 'Yucatán'),
         ('ZAC', 'Zacatecas')})
 
+    CAT_CHOICES = sorted({
+        ('accion', 'Accion'),
+        ('aventura', 'Aventura'),
+        ('carreras', 'Carreras'),
+        ('clasicos', 'Clasicos'),
+        ('terror', 'Terror')})
+
     usuario = models.ForeignKey(User, related_name='propietario',
                                 blank=True, null=True)
     titulo = models.CharField(max_length=50, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True)
     plataforma = models.CharField(max_length=50, db_index=True,
                                   choices=PLATFORM_CHOICES)
-    categoria = models.ForeignKey(Categoria, related_name='juegos')
+    categoria = models.CharField(max_length=200, choices=CAT_CHOICES)
     fecha_alta = models.DateTimeField(auto_now=True)
     precio_renta = models.FloatField(blank=True, null=True)
     deposito = models.FloatField(blank=True, null=True)

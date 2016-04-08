@@ -1,12 +1,5 @@
 from django.contrib import admin
-from .models import Juego, Categoria
-
-
-class CategoriaAdmin(admin.ModelAdmin):
-    list_display = ['nombre', 'slug']
-    prepopulated_fields = {'slug': ('nombre',)}
-
-admin.site.register(Categoria, CategoriaAdmin)
+from .models import Juego
 
 
 class JuegoAdmin(admin.ModelAdmin):

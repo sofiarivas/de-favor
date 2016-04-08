@@ -1,9 +1,9 @@
 from django import forms
-from django.contrib.auth.decorators import login_required
 from .models import Juego
 
 
-class Renta(forms.Form):
-    @login_required
-    def post(request, Juego)
-    titulo = 
+class JuegoForm(forms.ModelForm):
+        class Meta:
+            model = Juego
+            fields = ('titulo', 'plataforma', 'precio_renta', 'deposito', 'categoria',
+                      'descripcion', 'ubicacion', 'imagen', 'prefijo', 'telefono')
