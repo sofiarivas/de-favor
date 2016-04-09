@@ -39,10 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'social.apps.django_app.default',
 
+
     # Aca van nuestras apps creadas
     'main',
     'juego',
     'cuentas',
+    'contact_form',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -151,4 +153,16 @@ SOCIAL_AUTH_TWITTER_KEY = 'QmGvootZx1O6ZdjxWtsYwIG7o'
 SOCIAL_AUTH_TWITTER_SECRET = 'OiYizpx8WtOBMsRwEBtqEnKGJDc5YK4psz7kFPLOU2ttkcWDCa'
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = "/main/home/"
 
+
+
+EMAIL_BACKEND = (
+
+  'django.core.mail.backends.smtp.EmailBackend' 
+  )
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'defavorcontacto@gmail.com'
+EMAIL_HOST_PASSWORD = 'defavorcontacto2016'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 

@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from juego.models import Juego
+from email.mime.text import MIMEText
+from smtplib import SMTP
+
+
 
 
 class HomeView(TemplateView):
@@ -22,8 +26,3 @@ class RecientesView(TemplateView):
         ctx = {'jgo': juegos}
         return render(request, template, ctx)
 
-class ContactoView(TemplateView):
-	def get(self,request):
-		template_name="contacto.html"
-
-		return render(request, template_name)

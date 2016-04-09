@@ -1,0 +1,43 @@
+{%extends 'base.html'%}
+{% block title %}Contacto {{ block.super }}{% endblock %}
+{%load static%}
+{%block content%}
+
+<div class="row">
+    <nav class="default_nav transparent">
+        <div class="search_form col s12 l6">
+            <form action="">
+            <input type="text"  class="search_on_nav" placeholder="Busca un juego">
+            </form>
+        </div>
+        <div class="col l6">
+            <ul>
+                <li class="item-default-nav">Ver categorías</li>
+                <li class="item-default-nav">¿Cómo funciona De Favor?</li>
+                <li class="item-default-nav">Contacto</li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="container">
+    <div class="row">
+        <!-- <div class="col s12 m6 l6"> -->
+            <a href="#"><img src="{% static 'store_icon.jpg'%}" alt="">  </a>
+        </div>
+
+        <section class="section">
+            <article class="container">
+
+                <div class="row">
+
+                <h1 style="color:#666;">Contacto</h1>
+<form role="form" action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Enviar</button>
+</form>
+                </div>
+            </article>
+        </section>
+{% endblock %}
