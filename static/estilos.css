@@ -184,6 +184,7 @@ border-bottom: 0!important;
 }
 
 .tag-home{
+	display: inline-block;
 	margin: 0 1em;
 	border: 2px solid #BEBEBE!important;
 	border-radius: 44px!important;
@@ -191,6 +192,14 @@ border-bottom: 0!important;
 	color: white;
 	padding: 0 1.6em;
 	line-height: 27px!important;
+}
+.tag-home a{
+	color: white!important;
+}
+
+.tag-home:hover{
+	border: 2px solid #FF00EB!important;
+	background-color: #FF00EB!important;
 }
 
 #details{
@@ -242,6 +251,21 @@ nav .button-collapse{
 	border:0;
 	border-bottom: 5px solid #4E2D8E!important;
 	padding: 0.8em 1em!important;
+}
+/*Estilos de busqueda*/
+#hits{
+	color: white;
+}
+.buscar_button{
+	color: white!important;
+	display: inline-block;
+	border-radius: 10px;
+	background-color: #FF00EB;
+
+}
+
+.toast_rosa{
+	background-color: #FF00EB;
 }
 /* Estilos de template de detalle*/
 

@@ -1,20 +1,30 @@
 {% extends "base.html" %}
 {% load static%}
 {%block content %}
-<h2>Esta es las categoria: </h2>
 
-	{% if jgo %}
-		{% for j in jgo %}
-		<div class="col s12 m4 l4">
-			<span class="juego_reciente"><a href="../detalle/{{j.slug}}"><img src="/static/{{j.imagen}}" class="imagen_juego_module" alt=""/></a>
-			<br><a class="renta_boton" href="../detalle/{{j.slug}}">Ver juego</a></span><br>		
+<div class="container" style="min-height: 400px">
+
+	<h4>Estas viendo los juegos de la categoria {{c.nombre}}</h4>
+	<div class="row">
+		<div class="col s12 l10">
+			{% if j %}
+			{% for registro_juego in j %}
+				<div class="col s12 m4 l4">
+					<span class="juego_reciente"><a href="../detalle/{{registro_juego.slug}}"><img src="/static/{{registro_juego.imagen}}" class="imagen_juego_module" alt=""/></a>
+					<br><a class="renta_boton" href="../detalle/{{registro_juego.slug}}">Ver juego</a></span><br>		
+				</div>
+			{% endfor %}
+
+			{% else %}
+			<p>
+			No hay juegos
+			</p>
+			{%endif%}
 		</div>
-		{% endfor %}
+	</div>
 
-	{% else %}
-	<p>
-		No hay juegos
-	</p>
-	{%endif%}
+
+</div>
+
 
 {%endblock content%}

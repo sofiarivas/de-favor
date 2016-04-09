@@ -38,11 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social.apps.django_app.default',
+    'django.contrib.algoliasearch',
 
     # Aca van nuestras apps creadas
     'main',
     'juego',
     'cuentas',
+
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -156,3 +158,7 @@ SOCIAL_AUTH_TWITTER_KEY = 'QmGvootZx1O6ZdjxWtsYwIG7o'
 SOCIAL_AUTH_TWITTER_SECRET = 'OiYizpx8WtOBMsRwEBtqEnKGJDc5YK4psz7kFPLOU2ttkcWDCa'
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = "/main/home/"
 
+ALGOLIA = {
+    'APPLICATION_ID': "VUPR3RSXRE",
+    'API_KEY': "f68eed21179fb9ee254bacd2e4c4c7cc"
+}

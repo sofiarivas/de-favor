@@ -21,8 +21,10 @@ urlpatterns = [
 		name='login'
 		),
 	
-	url(r'^categoria/$',
+	url(r'^categoria/(?P<nombre>[-\w]+)',
 		views.CategoriaView.as_view(),
 		),
+
+
 ]
 

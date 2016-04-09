@@ -14,6 +14,7 @@
 
 		<a id="callto-home" href="{%url 'main:home'%}"> {{request.user.username}} pon en renta tus juegos </a>
 
+
 		{%else%}
 		<a href="{%url 'social:begin' 'facebook'%}" class="facebook_login">entra con facebook</a>
 
@@ -44,28 +45,40 @@
 					<h1>
 					La plataforma de renta peer to peer, una descripción de nuestra plataforma y un call to action ganador.
 					</h1>
-					<input placeholder="Encuentra un juego, renta y descubre una nueva aventura.." id="first_name" type="text" class="input-field-home input-border validate">
 
-				</form>
 
-					</div>
+				    <section class="panel">
+				      <header class="panel-heading">
+				        <div class="search_box">
+				          <form action="#" method="get">
+				            <input autocomplete="off" class=" input-field-home input-border autocomplete" id="q" placeholder="Encuentra un juego, renta y descubre una nueva aventura.." type="text" spellcheck="false" />
+				          </form>
+				        </div>
+				      </header>
+				    </section>
+
+				</div>
 				</form>
+				<h1></h1><br>
+   					 <div class="col s12 l0" id="hits"><br>
+   					 </div>
 			</div>
+
 
 		<div class="row">
 			
 			<div class="col s12 offset-l1 l10 ">
 				<div class="chip tag-home">
-					<a href="../categoria"><form action="." method="post"><input type="hidden" name="cat" value="terror"> </form> <input type="submit" value="Terror"></a>
+					<a href="../categoria/terror">Terror</a>
 				</div>
 				<div class="chip tag-home">
-					<a href="../categoria"><form action="." method="post"> <input type="hidden" name="cat" value="aventura"> </form> <input type="submit" value="Aventura"> </a>
+					<a href="../categoria/aventura" >Aventura</a>
 				</div>
 				<div class="chip tag-home">
-					Terror
+					<a href="../categoria/carreras">Carreras</a>
 				</div>
 				<div class="chip tag-home">
-					Carreras
+					<a href="../categoria/terror">Terror</a>
 				</div>
 			</div>
 		</div>

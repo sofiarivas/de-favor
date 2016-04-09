@@ -121,16 +121,71 @@
     </div>
   </footer>
 
-  <!--Import jQuery before materialize.js-->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-  <script type="text/javascript">
+
+  <!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+
+<script type="text/javascript">
   $(document).ready(function(){
-  	$(".button-collapse").sideNav();
-  });
-  </script>
+	 $(".button-collapse").sideNav();
+});
+</script>
+
+<!-- CDN Algolia -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/algoliasearch/3.13.1/algoliasearch.jquery.js"></script>
+  
+      <script type="text/javascript">
+      function searchCallback(content) {
+        if (content.query !== $('#q').val()) {
+          // do not take out-dated answers into account
+          return;
+        }
+        if (content.hits.length === 0) {
+          // no results
+          $('#hits').empty();
+          return;
+        }
+        // Scan all hits and display them
+        var html = '';
+        for (var i = 0; i < content.hits.length; ++i) {
+          var hit = content.hits[i];
+          html += '<div class="hit">';
+          for (var attribute in hit._highlightResult) {
+            html += '<div class="attribute">' +
+              hit._highlightResult[attribute].value +
+              '</div>';
+          }
+          html += '</div>';
+        }
+        $('#hits').html(html);
+      }
+      
+      $(document).ready(function() {
+        var $inputfield = $('#q');
+        // Replace the following values by your ApplicationID and ApiKey.
+        var client = $.algolia.Client('VUPR3RSXRE', 'f68eed21179fb9ee254bacd2e4c4c7cc');
+        // Replace the following value by the name of the index you want to query.
+        var index = client.initIndex('Juego');
+        $inputfield.keyup(function() {
+          index.search($inputfield.val(), { hitsPerPage: 5 })
+            .done(searchCallback)
+            .fail(function(content) { console.log('Error', content); });
+        }).focus().closest('form').on('submit', function() {
+          // on form submit, store the query string in the anchor
+          location.replace('#q=' + encodeURIComponent($inputfield.val()));
+          return false;
+        });
+        // check if there is a query in the anchor: http://example.org/#q=my+query
+        if (location.hash && location.hash.indexOf('#q=') === 0) {
+          var q = decodeURIComponent(location.hash.substring(3));
+          $inputfield.val(q).trigger('keyup');
+        }
+      });
+    </script>
 
 </body>
 </html>

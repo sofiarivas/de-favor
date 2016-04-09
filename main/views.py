@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from juego.models import Juego
+from juego.models import Juego, Categoria
 from django.core.urlresolvers import reverse
 
 
@@ -8,19 +8,11 @@ from django.core.urlresolvers import reverse
 class HomeView(TemplateView):
     def get(self, request):
         template_name = "index.html"
-        juegos = Juego.objects.order_by('fecha_alta').reverse()
-        ctx = {'jgo': juegos}
-        return render(request, template_name, ctx)
-
-    def post(self, request):
         seleccion = request.POST.get('cat')
-        c=Categoria.objects.get(nombre=seleccion)
-        j=Juego.objects.get(categoria=c)
-        ctx = {
-        'seleccion':seleccion,
-        'j': j
-        }
-        return j.titulo
+        juegos = Juego.objects.order_by('fecha_alta').reverse()
+        ctx = {'jgo': juegos,
+            }
+        return render(request, template_name, ctx)
 
 
 
@@ -57,22 +49,16 @@ class PreguntasView(TemplateView):
 #         return render(request, template_name, contexto)
 
 class CategoriaView(TemplateView):
-    def get(self, request):
-        seleccion = request.POST.get('cat')
+    def get(self, request, nombre):
         template = 'categoria.html'
-        contexto=  {
-            'seleccion': seleccion,
-        }
-        return render(request, template, contexto)
-
-    def post(self, request):
-        seleccion = request.POST.get('cat')
-        c=Categoria.objects.get(nombre=seleccion)
-        j=Juego.objects.get(categoria=c)
+        c=Categoria.objects.get(nombre=nombre)
+        print(c)
+        j=Juego.objects.filter(categoria=c)
+        print(j)
         ctx = {
-        'seleccion':seleccion,
-        'j': j
+        'c': c,
+        'j': j,
         }
-        return j.titulo, seleccion
+        return render(request, template, ctx)
 
 
