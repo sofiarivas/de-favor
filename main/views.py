@@ -37,16 +37,15 @@ class PreguntasView(TemplateView):
 
         return render(request,template)
 
+class TodosView(TemplateView):
+    def get(self, request):
+        juegos_todos=Juego.objects.all()
+        template = 'todos.html'
+        contexto = {
+        'juegos_todos':juegos_todos,
+        }
 
-
-# class CategoriaView(TemplateView):
-#     def get(self, request):
-#         template_name="categoria.html"
-#         juego = Juego.objects.filter('categoria')
-#         contexto = {
-#          'jgo':juego,
-#         }
-#         return render(request, template_name, contexto)
+        return render(request, template, contexto)
 
 class CategoriaView(TemplateView):
     def get(self, request, nombre):

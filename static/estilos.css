@@ -265,7 +265,12 @@ nav .button-collapse{
 }
 
 .toast_rosa{
-	background-color: #FF00EB;
+	background-color: #FF00EB!important;
+	font-size: 300px!important;
+}
+
+#staggered-test li{
+	opacity: 0;
 }
 /* Estilos de template de detalle*/
 
@@ -351,10 +356,14 @@ nav .button-collapse{
 	font-size: 11px;
 }
 
-@media only screen and (max-width: 9580px){
+@media only screen and (max-width: 950px){
 	.search_on_nav{
 		width: 90%!important;
 	}
+}
+
+@media only screen and (min-width: 800px) {
+	.centrado {width: 100%!important;}
 }
 
 @media only screen and (max-width: 800px){
@@ -365,7 +374,11 @@ nav .button-collapse{
 	.search_on_nav{
 	width: 80%!important;
 	}
-
+	
+	.juego_reciente{
+	display:block!important;
+	margin: 0 auto;
+	position: relative;}
 
 	#home-welcome{
 	height: 400px;

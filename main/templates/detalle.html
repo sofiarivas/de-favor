@@ -14,13 +14,29 @@
 			</div>
 			<div class="row main_detalle">
 				<span class="texto_renta">Rentalo por:</span>
-				<span> <button class="boton_renta" onclick="Materialize.toast('El dueño del juego te llamará', 4000, 'rounded', 'toast_rosa')">${{juego.precio_renta}}</button></span>
-				<span class="texto_deposito">Deposito: <span class="cantidad_deposito">${{juego.deposito}}</span> </span>
+				<span> 
+			<a onclick="Materialize.showStaggeredList('#staggered-test')"><button class="boton_renta" onclick="Materialize.toast('El dueño del juego te llamará', 4000, 'rounded', 'toast_rosa')">${{juego.precio_renta}}</button></a>
+				</span>	<span class="texto_deposito">Deposito: <span class="cantidad_deposito">${{juego.deposito}}</span> </span>
+
 			</div>
+          
+
 			<div class="row">
 				<span class="texto_ubicacion">Ubicación: </span><span class="ubicacion_juego">{{juego.ubicacion}}</span><br>
 				<span class="texto_consola">Consola: </span><span class="plataforma_juego">{{juego.plataforma}}</span><br>
 				<span class="texto_descripcion">Descripción: </span><span class="descripcion_juego">{{juego.descripcion}}</span>
+			</div>
+
+						<!-- Modal Trigger -->
+
+			
+			  <ul id="staggered-test">
+			  	<li class="texto_renta">Datos de contacto</li>
+			  	<li>Usuario: {{juego.usuario}}</li>
+			  	<li>Ubicación del juego: {{juego.ubicacion}}</li>
+			  	<li>Teléfono de contacto: {{juego.telefono}}</li>
+			  </ul>
+
 			</div>
 
 			
@@ -28,3 +44,7 @@
 	</div>
 </div>
 {%endblock content%}
+
+<script>
+	$('#modal1').openModal();
+</script>

@@ -7,6 +7,11 @@ urlpatterns = [
 		name='home'
 		),
 
+	url(r'^todos/$',
+		views.TodosView.as_view(),
+		name = 'todos'
+		),
+
 	url(r'^detalle/(?P<slug>[-\w]+)',
 		views.DetalleView.as_view(),
 		name='detalle'
