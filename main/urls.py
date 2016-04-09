@@ -20,4 +20,8 @@ urlpatterns = [
 		views.LoginView.as_view(),
 		name='login'
 		),
+	
+	url(r'^categoria/$',
+		views.CategoriaView.as_view(),
+		),
 ]

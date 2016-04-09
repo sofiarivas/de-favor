@@ -2,29 +2,12 @@
 {% load static%}
 {%block content %}
 
-<div class="row">
-	<nav class="default_nav transparent">
-		<div class="search_form col s12 l6 ">
-			<form action="">
-			<input type="text"  class="search_on_nav" placeholder="Busca un juego">
-			</form>
-		</div>
-		<div class="col l6">
-			<ul>
-				<li class="item-default-nav">Ver categorías</li>
-				<li class="item-default-nav">¿Cómo funciona De Favor?</li>
-				<li class="item-default-nav">Contacto</li>
-			</ul>
-		</div>
-	</nav>
-</div>
-
 <div class="container">
 	<div class="row">
-		<div class="col s12 m6 l6">
-			<img src="/static/{{juego.imagen}}" alt="">
+		<div class="col s12 m12 l6">
+			<img src="/static/{{juego.imagen}}" alt="" class="imagen_juego_detalle">
 		</div>	
-		<div class="col s12 m6 l6">
+		<div class="col s12 m12 l6">
 			<div class="row">
 				<h4>{{juego.titulo}}</h4>
 				<p class="dueno_juego"> Por: {{juego.usuario}}</p>

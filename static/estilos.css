@@ -42,6 +42,7 @@ box-shadow: none;
 }
 
 .search_on_nav{
+	margin: 0em 1em!important;
 	color: #4A4A4A;
 	border-bottom: 0!important;
 	border-radius: 10px!important;
@@ -62,6 +63,7 @@ box-shadow: none;
 	background-image: -o-linear-gradient(left, #00FFF3 0%, #FF00EB 100%), -o-linear-gradient(left, #00FFF3 0%, #FF00EB 100%);
 	background-image: linear-gradient(to right, #00FFF3 0%, #FF00EB 100%), linear-gradient(to right, #00FFF3 0%, #FF00EB 100%);
 }
+
 
 .search_on_nav::-webkit-input-placeholder{
 	color: #4040404!important;
@@ -200,6 +202,17 @@ border-bottom: 0!important;
 	font-size: 16px;
 }
 
+.imagen_juego_detalle{
+	height: 400px;
+	width: auto;
+}
+/*Estilos de mobile nav*/
+
+nav .button-collapse{
+	margin-left: 1em!important;
+	color: #825DCD!important;
+}
+
 /*Estilos de juegos recientes*/
 .imagen_juego_module{
 	height: 180px;
@@ -220,11 +233,12 @@ border-bottom: 0!important;
 }
 
 .renta_boton{
+	line-height: 4;
 	font-size: 14px;
 	font-weight: lighter;
 	background-color: #6B49AE!important;
 	color: #FFFFFF!important;
-	margin: 0.6em 0.5em!important;
+	margin: 1em 0.5em!important;
 	border:0;
 	border-bottom: 5px solid #4E2D8E!important;
 	padding: 0.8em 1em!important;
@@ -286,6 +300,9 @@ border-bottom: 0!important;
 	color: #808080;
 }
 
+.login_display{
+	text-align: center}
+
 
 /*Estilos de footer*/
 
@@ -310,10 +327,34 @@ border-bottom: 0!important;
 	font-size: 11px;
 }
 
+@media only screen and (max-width: 9580px){
+	.search_on_nav{
+		width: 90%!important;
+	}
+}
+
 @media only screen and (max-width: 800px){
 
 	h1{
 		font-size: 26px;
 	}
+	.search_on_nav{
+	width: 80%!important;
+	}
+
+
+	#home-welcome{
+	height: 400px;
+	}
+	
+	.imagen_juego_detalle{
+		height: 250px;
+	}
+
+	.default_nav .item-default-nav{
+		display: none;
+
+	}
+
 
   }

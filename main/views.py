@@ -12,6 +12,13 @@ class HomeView(TemplateView):
         ctx = {'jgo': juegos}
         return render(request, template_name, ctx)
 
+    def post(self, request):
+        seleccion = request.POST.get('cat')
+        c=Categoria.objects.get(nombre=seleccion)
+        j=Juego.objects.get(categoria=c)
+        return j.titulo, seleccion
+
+
 class DetalleView(TemplateView):
     def get(self, request, slug):
         juego = Juego.objects.get(slug=slug)
@@ -32,5 +39,24 @@ class LoginView(TemplateView):
 class PreguntasView(TemplateView):
     def get(self, request):
         template = 'faq.html'
+        return render(request, template)
 
+
+
+
+# class CategoriaView(TemplateView):
+#     def get(self, request):
+#         template_name="categoria.html"
+#         juego = Juego.objects.filter('categoria')
+#         contexto = {
+#          'jgo':juego,
+#         }
+#         return render(request, template_name, contexto)
+
+class CategoriaView(TemplateView):
+    def get(self, request):
+        template = 'categoria.html'
+        contexto=  {
+            'seleccion': seleccion
+        }
         return render(request, template)

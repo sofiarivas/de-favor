@@ -1,8 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, HttpResponseRedirect
 from django.views.generic import View
 from django.contrib.auth.decorators import login_required
 from .forms import JuegoForm
 from django.utils.decorators import method_decorator
+from django.contrib import messages
+from django.core.urlresolvers import reverse
 
 
 class JuegoView(View):
@@ -17,6 +19,12 @@ class JuegoView(View):
             juego_nuevo = JuegoForm(request.POST, request.FILES)
             if juego_nuevo.is_valid():
                 juego_nuevo.save(commit=False)
-                juego_nuevo.usuario = request.User
                 juego_nuevo.save()
-            return redirect('main:detalle')
+                template = 'juego/anuncioexitoso.html'
+                ctx = {
+                    'juego_nuevo': juego_nuevo
+                }
+                return render(request, template, ctx)
+            else:
+                messages.error(request, 'Algo falló')
+                return HttpResponseRedirect(reverse('juego:anuncio'))

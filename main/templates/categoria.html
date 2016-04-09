@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static%}
+{%block content %}
+<h2>Esta es las categoria: </h2>
+
+	{% if jgo %}
+		{% for j in jgo %}
+		<div class="col s12 m4 l4">
+			<span class="juego_reciente"><a href="../detalle/{{j.slug}}"><img src="/static/{{j.imagen}}" class="imagen_juego_module" alt=""/></a>
+			<br><a class="renta_boton" href="../detalle/{{j.slug}}">Ver juego</a></span><br>		
+		</div>
+		{% endfor %}
+
+	{% else %}
+	<p>
+		No hay juegos
+	</p>
+	{%endif%}
+
+{%endblock content%}

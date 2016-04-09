@@ -2,6 +2,20 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+class Categoria(models.Model):
+
+    nombre = models.CharField(max_length=100, db_index=True)
+    slug = models.SlugField(max_length=100, db_index=True, unique=True)
+
+    class Meta:
+        ordering = ('nombre',)
+        verbose_name = 'categoria',
+        verbose_name_plural = 'categorias'
+
+    def __str__(self):
+        return self.nombre
+
+
 class Juego(models.Model):
     PLATFORM_CHOICES = sorted({
         ('xbox', 'Xbox'),
@@ -44,13 +58,13 @@ class Juego(models.Model):
     titulo = models.CharField(max_length=50, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True)
     plataforma = models.CharField(max_length=50, db_index=True,
-                                  choices=PLATFORM_CHOICES)
-    categoria = models.CharField(max_length=200, choices=CAT_CHOICES)
-    fecha_alta = models.DateTimeField(auto_now=True)
+                                  choices=PLATFORM_CHOICES, blank=True, null=True)
+    categoria = models.CharField(max_length=200, choices=CAT_CHOICES, blank=True, null=True)
+    fecha_alta = models.DateTimeField(auto_now=True, blank=True, null=True)
     precio_renta = models.FloatField(blank=True, null=True)
     deposito = models.FloatField(blank=True, null=True)
     descripcion = models.TextField(blank=True, null=True)
-    ubicacion = models.CharField(max_length=100, choices=STATE_CHOICES)
+    ubicacion = models.CharField(max_length=100, choices=STATE_CHOICES, blank=True, null=True)
     imagen = models.ImageField(upload_to='media')
     prefijo = models.CharField(max_length=3)
     telefono = models.CharField(max_length=10)

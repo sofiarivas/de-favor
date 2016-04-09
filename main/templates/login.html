@@ -2,37 +2,21 @@
 {% load static%}
 {%block content %}
 
-<div class="row">
-	<nav class="default_nav transparent">
-		<div class="search_form col s12 l6">
-			<form action="">
-			<input type="text"  class="search_on_nav" placeholder="Busca un juego">
-			</form>
-		</div>
-		<div class="col l6">
-			<ul>
-				<li class="item-default-nav">Ver categorías</li>
-				<li class="item-default-nav">¿Cómo funciona De Favor?</li>
-				<li class="item-default-nav">Contacto</li>
-			</ul>
-		</div>
-	</nav>
-</div>
 
 <div class="container">
-	<div class="row">
+	<div class="row login_display">
 		<!-- <div class="col s12 m6 l6"> -->
 			<a href="#"><img src="{% static 'store_icon.jpg'%}" alt="">  </a>
 		</div>	
-		<div class="col s12 m6 l6">
+		<div class="col s12 m6 l6 login_display">
 			<div class="row">
 				<h4>Let´s Rock</h4>
 			</div>
 
 			<div>
-				<a href="{%url 'social:begin' 'facebook'%}" class="btn waves-effect blue">entra con facebook</a>
+				<a href="{%url 'social:begin' 'facebook'%}" class="facebook_login">entra con facebook</a>
 
-           		<a href="{%url 'social:begin' 'twitter'%}" class="btn waves-effect light-blue">entra con twitter</a>
+           		<a href="{%url 'social:begin' 'twitter'%}" class="twitter_login">entra con twitter</a>
 				
 			</div>
 

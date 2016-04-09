@@ -1,6 +1,6 @@
 {%load static%}
 {%load staticfiles%}
-
+{%load blog_tags%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,28 +47,50 @@
         </li>
        </ul>
 
-
         <ul class="right hide-on-med-and-down">
           <li>
             {%if request.user.is_authenticated%}
            {#  <a id="callto-home"> {{request.user.username}} pon en renta tus juegos </a> #}
 
-            {%else%}
-            <a id="callto-home" href="{%url 'main:login'%}"> Gana dinero pon en renta tus juegos </a>
-            {%endif%}
-        </li>
-        </ul>
+        <a class="register_button" href="{%url 'main:home'%}"> {{request.user.username}} Pon en renta tus juegos </a>
 
-      <ul class="side-nav" id="mobile-demo">
-        <li><a href="#">Sass</a></li>
-        <li><a href="#">Components</a></li>
-        <li><a href="#">Javascript</a></li>
-        <li><a href="#">Mobile</a></li>
+        {%else%}
+        <a href="{%url 'social:begin' 'facebook'%}" class="facebook_login">entra con facebook</a>
+
+        <a href="{%url 'social:begin' 'twitter'%}" class="twitter_login">entra con twitter</a>
+
+        {%endif%}
+        <a class="">Ver categorías</a>
+        <a class="">¿Cómo funciona De Favor?</a>
+        <a class="">Contacto</a>
+      </ul>
+
+    </div>
+  </nav>
+
+<div class="row">
+  <nav class="default_nav transparent">
+    <div class="search_form col s12 l6">
+      <form action="">
+      <input type="text"  class="search_on_nav" placeholder="Busca un juego">
+      </form>
+    </div>
+    <div class="col l6">
+      <ul>
+        <li class="item-default-nav">Ver categorías</li>
+        <li class="item-default-nav">¿Cómo funciona De Favor?</li>
+        <li class="item-default-nav">Contacto</li>
       </ul>
     </div>
   </nav>
 
+</div>
+
+
+
 {%endblock nav%}
+
+
 
 	{% block content %}
 
