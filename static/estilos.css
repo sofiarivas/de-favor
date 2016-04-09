@@ -355,6 +355,7 @@ nav .button-collapse{
 	font-family: helvetica;
 	font-size: 11px;
 }
+select {display: block!important;}
 
 @media only screen and (max-width: 950px){
 	.search_on_nav{

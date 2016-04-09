@@ -28,18 +28,16 @@
 {%block nav%}
 <nav class="transparent nav-wrapper-main">
     <div class="nav-wrapper-main">
-	  <a href="../home" class="brand-logo"><img src="{% static 'logo_morado.png' %}" id="logo-home"></a>
+	  <a href="{%url 'main:home' %}"class="brand-logo"><img src="{% static 'logo_morado.png' %}" id="logo-home"></a>
 
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-    
+
       <ul class="right hide-on-med-and-down">
 
         <li>{# <a href="#">Registro</a> #}
             {%if request.user.is_authenticated%}
-            {# Hola {{request.user.username}}! #}
-           
-            <a class="register_button" href="{%url 'main:home'%}"> {{request.user.username}} pon en renta tus juegos </a>
-            
+            <a class="register_button" href="{%url 'juego:anuncio'%}"> {{request.user.username}} pon en renta tus juegos </a>
+
             {%else%}
             <a href="{%url 'social:begin' 'facebook'%}" class="facebook_login">entra con facebook</a>
 
@@ -48,23 +46,6 @@
             {%endif%}
         </li>
        </ul>
-
-      <ul class="side-nav" id="mobile-demo">
-        {%if request.user.is_authenticated%}
-        {# Hola {{request.user.username}}! #}
-
-        <a class="register_button" href="{%url 'main:home'%}"> {{request.user.username}} Pon en renta tus juegos </a>
-
-        {%else%}
-        <a href="{%url 'social:begin' 'facebook'%}" class="facebook_login">entra con facebook</a>
-
-        <a href="{%url 'social:begin' 'twitter'%}" class="twitter_login">entra con twitter</a>
-
-        {%endif%}
-        <a class="">Ver todos los juegos</a>
-        <a class="">¿Cómo funciona De Favor?</a>
-        <a class="">Contacto</a>
-      </ul>
 
     </div>
   </nav>
@@ -78,12 +59,13 @@
     </div>
     <div class="col l6">
       <ul>
-        <li class="item-default-nav">Ver todos los juegos</li>
+        <a href="{%url 'main:todos' %}"><li class="item-default-nav">Ver todos los juegos</li></a>
         <li class="item-default-nav">¿Cómo funciona De Favor?</li>
         <li class="item-default-nav">Contacto</li>
       </ul>
     </div>
   </nav>
+
 </div>
 
 

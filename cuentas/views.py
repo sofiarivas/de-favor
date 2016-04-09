@@ -1,4 +1,3 @@
-# <<<<<<< HEAD
 # from django.shortcuts import render
 # from django.http import HttpResponse
 # from django.contrib.auth import authenticate, login
@@ -79,4 +78,3 @@ class LoginView(View):
 	# 			return redirect('posts:todos')
 	# 		else:
 	# 			return render(request,"cuentas/login.html",{'form':form})
-

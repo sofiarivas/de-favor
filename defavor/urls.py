@@ -13,6 +13,9 @@ urlpatterns = [
     url(r'^cuentas/',
         include('cuentas.urls', namespace='cuentas')),
 
+    url(r'^juego/',
+        include('juego.urls', namespace='juego')),
+
     url('', include('social.apps.django_app.urls', namespace='social')),
 ]
 

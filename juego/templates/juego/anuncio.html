@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="width:50%;min-width:400px;position:relative;margin:0 auto; float:none; display:block;margin-bottom:40px;">
+<h2>Registra tu juego</h2>
+<form action="." method="post" enctype="multipart/form-data">
+ {{ form.as_p }}
+ {% csrf_token %}
+ <p style="text-align:right;"><input type="submit" value="Publicar" class="renta_boton" style="width:200px;"></p>
+</form>
+</div>
+{% endblock content %}

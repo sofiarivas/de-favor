@@ -4,7 +4,7 @@
 {%block nav%}
 <nav class="nav-home">
     <div class="nav-wrapper">
-	  <a href="../home!" class="brand-logo"><img src="{% static 'logo.png' %}" id="logo-home"></a>
+	  <a href="{%url 'main:home' %}" class="brand-logo"><img src="{% static 'logo.png' %}" id="logo-home"></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
 		<li>
@@ -12,7 +12,7 @@
 		{%if request.user.is_authenticated%}
 		{# Hola {{request.user.username}}! #}
 
-		<a id="callto-home" href="{%url 'main:home'%}"> {{request.user.username}} pon en renta tus juegos </a>
+		<a id="callto-home" href="{%url 'juego:anuncio'%}"> {{request.user.username}} pon en renta tus juegos </a>
 
 
 		{%else%}

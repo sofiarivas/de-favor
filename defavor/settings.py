@@ -162,3 +162,4 @@ ALGOLIA = {
     'APPLICATION_ID': "VUPR3RSXRE",
     'API_KEY': "f68eed21179fb9ee254bacd2e4c4c7cc"
 }
+

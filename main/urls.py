@@ -21,7 +21,7 @@ urlpatterns = [
 		views.PreguntasView.as_view(),
 		name='preguntasfrecuentes'
 		),
-	url(r'^login/$', 
+	url(r'^login/$',
 		views.LoginView.as_view(),
 		name='login'
 		),
@@ -32,4 +32,3 @@ urlpatterns = [
 
 
 ]
-

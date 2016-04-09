@@ -26,10 +26,10 @@ class DetalleView(TemplateView):
         return render(request, template_name,contexto)
 
 class LoginView(TemplateView):
-	def get(self,request):
-		template_name="login.html"
+    def get(self,request):
+        template_name="login.html"
 
-		return render(request, template_name)
+        return render(request, template_name)
 
 class PreguntasView(TemplateView):
     def get(self, request):
@@ -59,5 +59,3 @@ class CategoriaView(TemplateView):
         'j': j,
         }
         return render(request, template, ctx)
-
-
