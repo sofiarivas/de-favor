@@ -52,7 +52,7 @@ class Juego(models.Model):
     slug = models.SlugField(max_length=200, db_index=True)
     plataforma = models.CharField(max_length=50, db_index=True,
                                   choices=PLATFORM_CHOICES, blank=True, null=True)
-    categoria = models.ForeignKey(Categoria, related_name='categoria', blank=True, null=True)
+    categoria = models.ForeignKey(Categoria, related_name='categoria')
     fecha_alta = models.DateTimeField(auto_now=True, blank=True, null=True)
     precio_renta = models.FloatField(blank=True, null=True)
     deposito = models.FloatField(blank=True, null=True)
