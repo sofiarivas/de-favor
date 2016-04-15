@@ -5,9 +5,10 @@
 
     <div class="container">
         <div class="row">
+        <div class="col s12 offset-l1 l10">
             <!-- <div class="col s12 m6 l6"> -->
                 <a href="#"> <img src="{% static 'store_icon.jpg'%}" alt=""> </a>
-        </div>
+        
 
         <section class="section">
             <article>
@@ -18,11 +19,13 @@
                     <form role="form" action="" method="post">
                         {% csrf_token %}
                         {{ form.as_p }}
-                        <button type="submit">Enviar</button>
+                        <button type="submit" class="renta_boton" style="width:200px;">Enviar</button>
                     </form>
                 </div>
             </article>
         </section>
+        </div>
+        </div>
     </div>
 
 {% endblock %}
