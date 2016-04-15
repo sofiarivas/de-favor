@@ -1,0 +1,28 @@
+{%extends 'base.html'%}
+{% block title %}Contacto {{ block.super }}{% endblock %}
+{%load static%}
+{%block content%}
+
+    <div class="container">
+        <div class="row">
+            <!-- <div class="col s12 m6 l6"> -->
+                <a href="#"> <img src="{% static 'store_icon.jpg'%}" alt=""> </a>
+        </div>
+
+        <section class="section">
+            <article>
+
+                <div class="row">
+
+                    <h1 style="color:#666; display inline-block">Contacto</h1>
+                    <form role="form" action="" method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+            </article>
+        </section>
+    </div>
+
+{% endblock %}

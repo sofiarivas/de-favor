@@ -40,11 +40,12 @@ INSTALLED_APPS = [
     'social.apps.django_app.default',
     'django.contrib.algoliasearch',
 
+
     # Aca van nuestras apps creadas
     'main',
     'juego',
     'cuentas',
-
+    'contact_form',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -162,4 +163,16 @@ ALGOLIA = {
     'APPLICATION_ID': "VUPR3RSXRE",
     'API_KEY': "f68eed21179fb9ee254bacd2e4c4c7cc"
 }
+
+
+EMAIL_BACKEND = (
+
+  'django.core.mail.backends.smtp.EmailBackend' 
+  )
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'defavorcontacto@gmail.com'
+EMAIL_HOST_PASSWORD = 'defavorcontacto2016'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 

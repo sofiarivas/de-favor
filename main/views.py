@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from juego.models import Juego, Categoria
 from django.core.urlresolvers import reverse
+from email.mime.text import MIMEText
+from smtplib import SMTP
+
 
 
 
@@ -13,8 +16,6 @@ class HomeView(TemplateView):
         ctx = {'jgo': juegos,
             }
         return render(request, template_name, ctx)
-
-
 
 class DetalleView(TemplateView):
     def get(self, request, slug):
@@ -59,3 +60,12 @@ class CategoriaView(TemplateView):
         'j': j,
         }
         return render(request, template, ctx)
+
+
+# class RecientesView(TemplateView):
+#     def get(self, request):
+#         template = 'index.html'
+#         juegos = Juego.objects.order_by('fecha_alta').reverse()
+#         ctx = {'jgo': juegos}
+#         return render(request, template, ctx)
+

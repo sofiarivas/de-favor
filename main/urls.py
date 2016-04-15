@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 from . import views
 
 urlpatterns = [
@@ -30,5 +30,10 @@ urlpatterns = [
 		views.CategoriaView.as_view(),
 		),
 
+	url(r'^login/$', 
+			views.LoginView.as_view(),
+				name='login'
+		),
 
 ]
+
