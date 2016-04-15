@@ -5,6 +5,7 @@ from .forms import JuegoForm
 from django.utils.decorators import method_decorator
 from django.contrib import messages
 from django.core.urlresolvers import reverse
+from django.utils.text import slugify
 
 
 class JuegoView(View):
@@ -17,8 +18,9 @@ class JuegoView(View):
 
     def post(self, request):
             juego_nuevo = JuegoForm(request.POST, request.FILES)
-            if juego_nuevo.is_valid():
-                juego_nuevo.save(commit=False)
+            if juego_nuevo.is_valid():  
+                juego = juego_nuevo.save(commit=False)
+                juego.slug = slugify(juego.titulo)
                 juego_nuevo.save()
                 template = 'juego/anuncioexitoso.html'
                 ctx = {
