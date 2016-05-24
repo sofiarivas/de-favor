@@ -1,1 +1,1 @@
-web: gunicorn myproject.wsgi --log-file -
+web: gunicorn defavor.wsgi --log-file -
